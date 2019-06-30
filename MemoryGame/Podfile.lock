@@ -1,0 +1,20 @@
+PODS:
+  - AudioPlayerSwift (2.0.0)
+  - LinearProgressBar (1.0.1)
+
+DEPENDENCIES:
+  - AudioPlayerSwift
+  - LinearProgressBar
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AudioPlayerSwift
+    - LinearProgressBar
+
+SPEC CHECKSUMS:
+  AudioPlayerSwift: 26d1c95f177f5bd195be482a41538d7ab8d04dd9
+  LinearProgressBar: f6a74dbabed229dbb1a7978089e2e4317a3a0ee0
+
+PODFILE CHECKSUM: 89b158239bb95d3b074dbce07bf20079bdd06044
+
+COCOAPODS: 1.5.3
