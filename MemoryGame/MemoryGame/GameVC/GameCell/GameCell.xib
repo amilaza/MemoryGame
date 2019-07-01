@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GameCell" customModule="MemoryGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="72" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="72" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_question_purple" translatesAutoresizingMaskIntoConstraints="NO" id="SVL-A1-Osn">
+                        <rect key="frame" x="12" y="11" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="SVL-A1-Osn" secondAttribute="height" id="rfq-FO-yJj"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="SVL-A1-Osn" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="AOY-Q1-u9f"/>
+                <constraint firstItem="SVL-A1-Osn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="S2h-JY-t1l"/>
+                <constraint firstItem="SVL-A1-Osn" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="2/3" id="g1F-CP-AgR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="72" height="70"/>
+            <connections>
+                <outlet property="imvItem" destination="SVL-A1-Osn" id="jiE-Ul-vFX"/>
+            </connections>
+            <point key="canvasLocation" x="-394" y="88"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_question_purple" width="84" height="84"/>
+    </resources>
+</document>
