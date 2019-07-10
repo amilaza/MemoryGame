@@ -35,9 +35,9 @@ class GameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSObject.cancelPreviousPerformRequests(withTarget: self)
-        loadDatas()
+        
+        //loadDatas()
         loadUIs()
-        createAndLoadInterstitial()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +51,13 @@ class GameVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        playGame()
-    }
-    
-    func playGame(){
-        initGame()
+        //initGame()
+        gameScene.loadGameWithLevel(level: 1)
+        height = clvGame.frame.height/CGFloat(gameScene.row)
+        width = clvGame.frame.width/CGFloat(gameScene.column)
+        clvGame.reloadData()
+        coundownTime = gameScene.time!
+        
     }
     
     func loadDatas(){
@@ -76,10 +78,10 @@ class GameVC: UIViewController {
     }
     
     func initGame(){
-        gameScene.LoadGameWithLevel(level: gameScene.level)
+        gameScene.loadGameWithLevel(level: gameScene.level)
         selectedIndexPaths?.removeAll()
         lblLevel.text = "Level \(gameScene.level)"
-        loadScene()
+        //loadScene()
         sliderCountDown.progressValue = 100
         startCountDown();
     }
@@ -101,13 +103,15 @@ class GameVC: UIViewController {
         startCountDown()
     }
     
-    func loadScene(){
-        
-        height = clvGame.frame.height/CGFloat(gameScene.row)
-        width = clvGame.frame.width/CGFloat(gameScene.column)
-        coundownTime = gameScene.time!
-        loadGame()
-    }
+//    func loadScene(){
+//
+//        gameScene.loadGameWithLevel(level: 1)
+//        height = clvGame.frame.height/CGFloat(gameScene.row)
+//        width = clvGame.frame.width/CGFloat(gameScene.column)
+//        clvGame.reloadData()
+//        coundownTime = gameScene.time!
+//        //loadGame()
+//    }
     
     func loadUIs(){
         clvGame.delegate = self;
@@ -134,7 +138,7 @@ class GameVC: UIViewController {
             return;
         }
         gameScene.level = gameScene.level + 1
-        playGame()
+        initGame()
     }
     
     func winThegame(){
@@ -174,7 +178,7 @@ class GameVC: UIViewController {
         saveTheScore()
         let numberOfGame:Int = UserDefaults.standard.integer(forKey: "numberOfGame")
         if (numberOfGame % 3 == 2){
-            showAdmob()
+           // showAdmob()
         }
         
         if (numberOfGame > 1000){
@@ -228,10 +232,10 @@ extension GameVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:GameCell = clvGame.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath) as! GameCell
-        cell.gameItem = gameScene.gameItems[indexPath.row];
-        if (!(selectedIndexPaths?.contains(indexPath))!){
-            cell.isOpened = false;
-        }
+//        cell.gameItem = gameScene.gameItems[indexPath.row];
+//        if (!(selectedIndexPaths?.contains(indexPath))!){
+//            cell.isOpened = false;
+//        }
         
         return cell
     }
@@ -241,11 +245,11 @@ extension GameVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return;
         }
         
-        let currentCell: GameCell = clvGame.cellForItem(at: indexPath) as! GameCell
-        currentCell.isOpened = true;
-        if(!btnMute.isSelected){
-            audioPlayer?.play()
-        }
+//        let currentCell: GameCell = clvGame.cellForItem(at: indexPath) as! GameCell
+//        currentCell.isOpened = true;
+//        if(!btnMute.isSelected){
+//            audioPlayer?.play()
+//        }
         
        self.perform(#selector(handleClickItemAt(indexPath:)), with: indexPath, afterDelay: 1)
     }
@@ -254,29 +258,29 @@ extension GameVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         let currentCell: GameCell = clvGame.cellForItem(at: indexPath) as! GameCell
         
-        if let preIndexPath = previourIndexPath{
-            let preCell: GameCell = clvGame.cellForItem(at: preIndexPath) as! GameCell
-            if (currentCell.gameItem?.imageID == preCell.gameItem?.imageID){
-                currentCell.isOpened = true
-                preCell.isOpened = true
-                previourIndexPath = nil
-                selectedIndexPaths?.append(indexPath)
-                selectedIndexPaths?.append(preIndexPath)
-                
-                gameScene.score = gameScene.score + 1
-                lblScore.text = "Score: \(gameScene.score)"
-                
-                if (selectedIndexPaths?.count == gameScene.row * gameScene.column){
-                    loadNextScene()
-                }
-            } else {
-                currentCell.isOpened = false
-                previourIndexPath = indexPath
-            }
-        } else {
-            currentCell.isOpened = false
-            previourIndexPath = indexPath
-        }
+//        if let preIndexPath = previourIndexPath{
+//            let preCell: GameCell = clvGame.cellForItem(at: preIndexPath) as! GameCell
+//            if (currentCell.gameItem?.imageID == preCell.gameItem?.imageID){
+//                currentCell.isOpened = true
+//                preCell.isOpened = true
+//                previourIndexPath = nil
+//                selectedIndexPaths?.append(indexPath)
+//                selectedIndexPaths?.append(preIndexPath)
+//                
+//                gameScene.score = gameScene.score + 1
+//                lblScore.text = "Score: \(gameScene.score)"
+//                
+//                if (selectedIndexPaths?.count == gameScene.row * gameScene.column){
+//                    loadNextScene()
+//                }
+//            } else {
+//                currentCell.isOpened = false
+//                previourIndexPath = indexPath
+//            }
+//        } else {
+//            currentCell.isOpened = false
+//            previourIndexPath = indexPath
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
