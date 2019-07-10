@@ -11,33 +11,21 @@ import UIKit
 class GameCell: UICollectionViewCell {
 
     @IBOutlet weak var imvItem: UIImageView!
-//    var gameItem: HideImage?{
-//        willSet{
-//            //imvItem.image = newValue?.image
-//            //gameItem = newValue
-//        }
-//    }
-    
-    var imageTemp: UIImage?{
-        willSet {
-            imvItem.image = newValue
+    var gameItem: HideImage?
+
+    var isOpened: Bool? {
+        willSet{
+            if newValue == true {
+                imvItem.image = gameItem?.image
+            } else {
+                imvItem.image = UIImage(named: "ic_question_purple")
+            }
         }
     }
-    
-//    var isOpened: Bool? {
-//        willSet{
-//            isOpened = newValue
-//            if isOpened ?? true {
-//                imvItem.image = gameItem?.image
-//            } else {
-//                imvItem.image = imageTemp;
-//            }
-//        }
-//    }
-//    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageTemp = UIImage(named: "ic_question_purple")
+        isOpened = false
     }
 
 }

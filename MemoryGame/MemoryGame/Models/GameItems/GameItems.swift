@@ -13,18 +13,14 @@ class GameItems: NSObject {
     var fruitItems:[String] = []
     func loadGameItemsWith(numberOfCouple: Int)->[HideImage]{
         loadFruitItems()
-        createGameItems(items: numberOfCouple);
+        randomGameItems(with: numberOfCouple * 2);
         return gameItems;
     }
     
-    func createGameItems(items: Int){
-         randomGameItems(with: items)
-    }
-    
-    func randomGameItems(with numberOfCouple:Int){
+    private func randomGameItems(with numberItems:Int){
         var tempItem: [String] = []
         var numberOfItem = 0
-        while numberOfItem < numberOfCouple {
+        while numberOfItem < numberItems {
             let string: String = fruitItems.randomElement() ?? ""
             if (!tempItem.contains(string)){
                 tempItem.append(string)
@@ -44,7 +40,7 @@ class GameItems: NSObject {
         }
     }
     
-    func loadFruitItems(){
+    private func loadFruitItems(){
         for item in 1...33{
             let imageObj: String = "ic_food_\(item)"
             fruitItems.append(imageObj)

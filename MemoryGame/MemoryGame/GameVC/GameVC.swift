@@ -232,10 +232,10 @@ extension GameVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:GameCell = clvGame.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath) as! GameCell
-//        cell.gameItem = gameScene.gameItems[indexPath.row];
-//        if (!(selectedIndexPaths?.contains(indexPath))!){
-//            cell.isOpened = false;
-//        }
+        cell.gameItem = gameScene.gameItems[indexPath.row]
+        if (!(selectedIndexPaths?.contains(indexPath))!){
+            cell.isOpened = false;
+        }
         
         return cell
     }
@@ -245,42 +245,42 @@ extension GameVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return;
         }
         
-//        let currentCell: GameCell = clvGame.cellForItem(at: indexPath) as! GameCell
-//        currentCell.isOpened = true;
-//        if(!btnMute.isSelected){
-//            audioPlayer?.play()
-//        }
+        let currentCell: GameCell = clvGame.cellForItem(at: indexPath) as! GameCell
+        currentCell.isOpened = true;
+        if(!btnMute.isSelected){
+            audioPlayer?.play()
+        }
         
-       self.perform(#selector(handleClickItemAt(indexPath:)), with: indexPath, afterDelay: 1)
+        self.perform(#selector(handleClickItemAt(indexPath:)), with: indexPath, afterDelay: 1)
     }
     
     @objc func handleClickItemAt(indexPath: IndexPath) {
         
         let currentCell: GameCell = clvGame.cellForItem(at: indexPath) as! GameCell
         
-//        if let preIndexPath = previourIndexPath{
-//            let preCell: GameCell = clvGame.cellForItem(at: preIndexPath) as! GameCell
-//            if (currentCell.gameItem?.imageID == preCell.gameItem?.imageID){
-//                currentCell.isOpened = true
-//                preCell.isOpened = true
-//                previourIndexPath = nil
-//                selectedIndexPaths?.append(indexPath)
-//                selectedIndexPaths?.append(preIndexPath)
-//                
-//                gameScene.score = gameScene.score + 1
-//                lblScore.text = "Score: \(gameScene.score)"
-//                
-//                if (selectedIndexPaths?.count == gameScene.row * gameScene.column){
-//                    loadNextScene()
-//                }
-//            } else {
-//                currentCell.isOpened = false
-//                previourIndexPath = indexPath
-//            }
-//        } else {
-//            currentCell.isOpened = false
-//            previourIndexPath = indexPath
-//        }
+        if let preIndexPath = previourIndexPath{
+            let preCell: GameCell = clvGame.cellForItem(at: preIndexPath) as! GameCell
+            if (currentCell.gameItem?.imageID == preCell.gameItem?.imageID){
+                currentCell.isOpened = true
+                preCell.isOpened = true
+                previourIndexPath = nil
+                selectedIndexPaths?.append(indexPath)
+                selectedIndexPaths?.append(preIndexPath)
+                
+                gameScene.score = gameScene.score + 1
+                lblScore.text = "Score: \(gameScene.score)"
+                
+                if (selectedIndexPaths?.count == gameScene.row * gameScene.column){
+                    loadNextScene()
+                }
+            } else {
+                currentCell.isOpened = false
+                previourIndexPath = indexPath
+            }
+        } else {
+            currentCell.isOpened = false
+            previourIndexPath = indexPath
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
