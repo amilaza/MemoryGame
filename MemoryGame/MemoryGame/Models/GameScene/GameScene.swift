@@ -42,7 +42,7 @@ class GameScene: NSObject {
         if (gameItems.isEmpty == false){
             gameItems.removeAll()
         }
-        gameItems = itemManager.loadGameItemsWith(numberOfCouple: (column * row))
+        gameItems = itemManager.loadGameItemsWith(numberOfCouple: (column * row)/2)
     }
     
     private func loadFirstScene(){

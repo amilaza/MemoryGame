@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayAgainVC" customModule="MemoryGame" customModuleProvider="target">
+            <connections>
+                <outlet property="lblStatus" destination="qcv-Uh-FqJ" id="gpn-s5-slT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_background" translatesAutoresizingMaskIntoConstraints="NO" id="dl1-Yn-Zz5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zg1-2W-pY2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nS7-CF-dpe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_alert_board" translatesAutoresizingMaskIntoConstraints="NO" id="mSu-dP-YOk">
+                                <rect key="frame" x="36" y="306" width="303" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="303" id="Rjg-pe-UWG"/>
+                                    <constraint firstAttribute="height" constant="200" id="aLn-cu-EQ3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxh-Qq-eTs">
+                                <rect key="frame" x="155.66666666666666" y="409.66666666666669" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="0Vp-ok-QXe"/>
+                                    <constraint firstAttribute="height" constant="64" id="W9L-cN-ZBP"/>
+                                </constraints>
+                                <state key="normal" image="ic_play_again"/>
+                                <connections>
+                                    <action selector="touchPlayAgain:" destination="-1" eventType="touchUpInside" id="OHW-Ln-Teb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcv-Uh-FqJ">
+                                <rect key="frame" x="127.33333333333331" y="336" width="120.66666666666669" height="49.666666666666686"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qcv-Uh-FqJ" firstAttribute="centerX" secondItem="mSu-dP-YOk" secondAttribute="centerX" id="4CF-7v-ffb"/>
+                            <constraint firstItem="mSu-dP-YOk" firstAttribute="centerX" secondItem="nS7-CF-dpe" secondAttribute="centerX" id="6Je-di-v8l"/>
+                            <constraint firstItem="nxh-Qq-eTs" firstAttribute="top" secondItem="qcv-Uh-FqJ" secondAttribute="bottom" constant="24" id="PnP-1j-4kG"/>
+                            <constraint firstItem="qcv-Uh-FqJ" firstAttribute="top" secondItem="mSu-dP-YOk" secondAttribute="top" constant="30" id="UQe-EB-EMA"/>
+                            <constraint firstItem="nxh-Qq-eTs" firstAttribute="centerX" secondItem="qcv-Uh-FqJ" secondAttribute="centerX" id="VAr-7y-i64"/>
+                            <constraint firstItem="mSu-dP-YOk" firstAttribute="centerY" secondItem="nS7-CF-dpe" secondAttribute="centerY" id="rD2-2a-MdK"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Zg1-2W-pY2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="679-2h-ZAZ"/>
+                <constraint firstItem="Zg1-2W-pY2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8pe-ek-7UM"/>
+                <constraint firstItem="Zg1-2W-pY2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KsZ-ej-jUi"/>
+                <constraint firstItem="dl1-Yn-Zz5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="U4X-54-lqg"/>
+                <constraint firstItem="dl1-Yn-Zz5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VNY-Fv-WXx"/>
+                <constraint firstAttribute="bottom" secondItem="Zg1-2W-pY2" secondAttribute="bottom" id="XbX-4d-4x1"/>
+                <constraint firstItem="dl1-Yn-Zz5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="nar-0P-AQ9"/>
+                <constraint firstAttribute="bottom" secondItem="dl1-Yn-Zz5" secondAttribute="bottom" id="zNZ-Tg-iFm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-196" y="163"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_alert_board" width="303" height="200"/>
+        <image name="ic_background" width="375" height="812"/>
+        <image name="ic_play_again" width="64" height="64"/>
+    </resources>
+</document>

@@ -36,7 +36,7 @@ class GameVC: UIViewController {
         super.viewDidLoad()
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         
-        //loadDatas()
+        loadDatas()
         loadUIs()
     }
     
@@ -51,20 +51,10 @@ class GameVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //initGame()
-        gameScene.loadGameWithLevel(level: 1)
-        height = clvGame.frame.height/CGFloat(gameScene.row)
-        width = clvGame.frame.width/CGFloat(gameScene.column)
-        clvGame.reloadData()
-        coundownTime = gameScene.time!
-        
+        initGame()
     }
     
     func loadDatas(){
-        if let listScore:[Int] = UserDefaults.standard.array(forKey: "HighestScore") as? [Int]{
-            scores = listScore
-        }
-        
         selectedIndexPaths?.removeAll()
         previourIndexPath = nil
         
@@ -81,7 +71,7 @@ class GameVC: UIViewController {
         gameScene.loadGameWithLevel(level: gameScene.level)
         selectedIndexPaths?.removeAll()
         lblLevel.text = "Level \(gameScene.level)"
-        //loadScene()
+        loadScene()
         sliderCountDown.progressValue = 100
         startCountDown();
     }
@@ -89,7 +79,6 @@ class GameVC: UIViewController {
     @objc func startCountDown(){
         if (coundownTime.isLess(than: 0)){
             loseTheGame()
-            //loadNextScene()
         } else {
             self.perform(#selector(reduceTimer), with: nil, afterDelay: 1)
         }
@@ -103,16 +92,16 @@ class GameVC: UIViewController {
         startCountDown()
     }
     
-//    func loadScene(){
-//
-//        gameScene.loadGameWithLevel(level: 1)
-//        height = clvGame.frame.height/CGFloat(gameScene.row)
-//        width = clvGame.frame.width/CGFloat(gameScene.column)
-//        clvGame.reloadData()
-//        coundownTime = gameScene.time!
-//        //loadGame()
-//    }
-    
+    func loadScene(){
+
+        gameScene.loadGameWithLevel(level: 1)
+        height = clvGame.frame.height/CGFloat(gameScene.row)
+        width = clvGame.frame.width/CGFloat(gameScene.column)
+        clvGame.reloadData()
+        coundownTime = gameScene.time!
+        loadGame()
+    }
+
     func loadUIs(){
         clvGame.delegate = self;
         clvGame.dataSource = self;
@@ -133,62 +122,24 @@ class GameVC: UIViewController {
     }
     
     func loadNextScene(){
-        if (gameScene.column == 8 && gameScene.row == 8){
+        gameScene.level = gameScene.level + 1
+        if (gameScene.level == 3){
             winThegame()
             return;
         }
-        gameScene.level = gameScene.level + 1
         initGame()
     }
     
     func winThegame(){
-        saveTheScore()
-//        let vc: WinTheGameVC = WinTheGameVC()
-//        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func saveTheScore(){
-        if(scores.count == 0){
-            scores.append(gameScene.score)
-            UserDefaults.standard.set(scores, forKey: "HighestScore")
-            return
-        }
-        
-        if scores.last! > gameScene.score {
-            return
-        }
-        
-        reoderTheScores()
-    }
-    
-    func reoderTheScores(){
-        for score in scores {
-            if score <= gameScene.score {
-                scores.insert(gameScene.score, at: (scores.index(of: score))!)
-                UserDefaults.standard.set(scores, forKey: "HighestScore")
-            }
-        }
-        
-        if scores.count > 5 {
-            scores.removeLast()
-        }
+        let vc: PlayAgainVC = PlayAgainVC()
+        vc.isWin = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func loseTheGame(){
-        saveTheScore()
-        let numberOfGame:Int = UserDefaults.standard.integer(forKey: "numberOfGame")
-        if (numberOfGame % 3 == 2){
-           // showAdmob()
-        }
-        
-        if (numberOfGame > 1000){
-            updateNumberOfGame(games: 1)
-        } else {
-            updateNumberOfGame(games: numberOfGame + 1)
-        }
-
-//        let vc: PlayAgainVC = PlayAgainVC()
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc: PlayAgainVC = PlayAgainVC()
+        vc.isWin = false
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func resetGame(){

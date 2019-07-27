@@ -13,7 +13,7 @@ class GameItems: NSObject {
     var fruitItems:[String] = []
     func loadGameItemsWith(numberOfCouple: Int)->[HideImage]{
         loadFruitItems()
-        randomGameItems(with: numberOfCouple * 2);
+        randomGameItems(with: numberOfCouple);
         return gameItems;
     }
     
