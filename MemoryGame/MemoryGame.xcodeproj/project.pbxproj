@@ -48,8 +48,6 @@
 		36A0D92222CBC77B00C803E0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0D91922CBC77B00C803E0 /* GameScene.swift */; };
 		36A0D92322CBC77B00C803E0 /* GameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0D91B22CBC77B00C803E0 /* GameItems.swift */; };
 		36A0D92422CBC77B00C803E0 /* HideImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0D91D22CBC77B00C803E0 /* HideImage.swift */; };
-		36A0D92522CBC77B00C803E0 /* AppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0D91F22CBC77B00C803E0 /* AppStoreReviewManager.swift */; };
-		36A0D92622CBC77B00C803E0 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0D92122CBC77B00C803E0 /* GameTimer.swift */; };
 		36B18C7F22EB0A8300DE8AF1 /* PlayAgainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B18C7D22EB0A8300DE8AF1 /* PlayAgainVC.swift */; };
 		36B18C8022EB0A8300DE8AF1 /* PlayAgainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36B18C7E22EB0A8300DE8AF1 /* PlayAgainVC.xib */; };
 		7F41381100C64903BF4FECBF /* Pods_MemoryGameTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7F71494874935A7B25BD59 /* Pods_MemoryGameTests.framework */; };
@@ -122,8 +120,6 @@
 		36A0D91922CBC77B00C803E0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		36A0D91B22CBC77B00C803E0 /* GameItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameItems.swift; sourceTree = "<group>"; };
 		36A0D91D22CBC77B00C803E0 /* HideImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideImage.swift; sourceTree = "<group>"; };
-		36A0D91F22CBC77B00C803E0 /* AppStoreReviewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift; sourceTree = "<group>"; };
-		36A0D92122CBC77B00C803E0 /* GameTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		36B18C7D22EB0A8300DE8AF1 /* PlayAgainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayAgainVC.swift; sourceTree = "<group>"; };
 		36B18C7E22EB0A8300DE8AF1 /* PlayAgainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayAgainVC.xib; sourceTree = "<group>"; };
 		3E71534385372ECFABBCAFE4 /* Pods_MemoryGameUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoryGameUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,8 +300,6 @@
 				36A0D91822CBC77B00C803E0 /* GameScene */,
 				36A0D91A22CBC77B00C803E0 /* GameItems */,
 				36A0D91C22CBC77B00C803E0 /* HideImage */,
-				36A0D91E22CBC77B00C803E0 /* AppStoreReviewManager */,
-				36A0D92022CBC77B00C803E0 /* GameTimer */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -332,22 +326,6 @@
 				36A0D91D22CBC77B00C803E0 /* HideImage.swift */,
 			);
 			path = HideImage;
-			sourceTree = "<group>";
-		};
-		36A0D91E22CBC77B00C803E0 /* AppStoreReviewManager */ = {
-			isa = PBXGroup;
-			children = (
-				36A0D91F22CBC77B00C803E0 /* AppStoreReviewManager.swift */,
-			);
-			path = AppStoreReviewManager;
-			sourceTree = "<group>";
-		};
-		36A0D92022CBC77B00C803E0 /* GameTimer */ = {
-			isa = PBXGroup;
-			children = (
-				36A0D92122CBC77B00C803E0 /* GameTimer.swift */,
-			);
-			path = GameTimer;
 			sourceTree = "<group>";
 		};
 		36B18C7C22EB0A8300DE8AF1 /* PlayAgainVC */ = {
@@ -633,9 +611,7 @@
 				36A0D91422C87AB800C803E0 /* GameCell.swift in Sources */,
 				36A0D8A522C8700E00C803E0 /* ViewController.swift in Sources */,
 				36A0D91222C87AB800C803E0 /* GameVC.swift in Sources */,
-				36A0D92522CBC77B00C803E0 /* AppStoreReviewManager.swift in Sources */,
 				36A0D8A322C8700E00C803E0 /* AppDelegate.swift in Sources */,
-				36A0D92622CBC77B00C803E0 /* GameTimer.swift in Sources */,
 				36B18C7F22EB0A8300DE8AF1 /* PlayAgainVC.swift in Sources */,
 				36A0D92322CBC77B00C803E0 /* GameItems.swift in Sources */,
 				36A0D92422CBC77B00C803E0 /* HideImage.swift in Sources */,

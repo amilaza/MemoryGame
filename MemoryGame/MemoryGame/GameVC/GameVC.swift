@@ -20,8 +20,6 @@ class GameVC: UIViewController {
     @IBOutlet weak var clvGame: UICollectionView!
     @IBOutlet weak var lblScore: UILabel!
     
-    
-//    var gameItems:[HideImage] = []
     var height: CGFloat = 0.0
     var width: CGFloat = 0.0
     let MAIN_SCREEN: CGRect = UIScreen.main.bounds
